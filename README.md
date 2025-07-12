@@ -118,6 +118,7 @@ MIDIMusicGeneration/
 - PrettyTable (formatted console output)
 - Pandas (data manipulation)
 - Music21 (music analysis)
+- scikit-learn (machine learning algorithms and metrics)
 
 ## Installation
 
@@ -217,7 +218,7 @@ If you encounter errors like `ModuleNotFoundError: No module named 'pandas'` or 
 
 2. **Install missing packages directly**:
    ```bash
-   pip install pandas openpyxl
+   pip install pandas openpyxl scikit-learn
    ```
 
 3. **On Debian/Ubuntu systems with externally-managed-environment error**:
@@ -230,6 +231,14 @@ If you encounter errors like `ModuleNotFoundError: No module named 'pandas'` or 
    
    # Option 3: Use the setup scripts which handle this properly
    ./quick_setup.sh
+   ```
+
+4. **For scikit-learn errors**: If you see `ModuleNotFoundError: No module named 'sklearn'`:
+   ```bash
+   # Install scikit-learn (not sklearn)
+   pip install scikit-learn
+   
+   # Note: 'sklearn' is a deprecated package name, always use 'scikit-learn'
    ```
 
 #### Virtual Environment Issues
