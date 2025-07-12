@@ -126,17 +126,22 @@ We provide convenient setup scripts that will install all required dependencies:
 #### For Linux/macOS:
 
 ```bash
-# Make the setup script executable
-chmod +x setup.sh
+# Option 1: Quick automated setup (recommended for Ubuntu/Debian)
+chmod +x quick_setup.sh
+./quick_setup.sh
 
-# Run the setup script
+# Option 2: Interactive setup
+chmod +x setup.sh
 ./setup.sh
 ```
 
 #### For Windows:
 
 ```
-# Run the setup batch script
+# Option 1: Quick automated setup (recommended)
+quick_setup.bat
+
+# Option 2: Interactive setup
 setup.bat
 ```
 
@@ -144,11 +149,22 @@ setup.bat
 
 If you prefer to install dependencies manually:
 
-1. Install Python 3.6+ if not already installed
+1. Create a virtual environment:
+   ```
+   # Linux/macOS
+   python3 -m venv venv
+   source venv/bin/activate
+   
+   # Windows
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+
 2. Install required Python packages:
    ```
    pip install -r requirements.txt
    ```
+
 3. Install FluidSynth (required for MIDI to audio conversion):
    - **Ubuntu/Debian**: `sudo apt-get install fluidsynth`
    - **macOS**: `brew install fluidsynth`
