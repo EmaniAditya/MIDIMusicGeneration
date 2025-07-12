@@ -105,16 +105,54 @@ MIDIMusicGeneration/
 
 ## Requirements
 
-- Python 3.x
+- Python 3.6+
 - TensorFlow/Keras
 - NumPy
 - OpenCV
 - PIL (Python Imaging Library)
 - Mido (MIDI Objects)
+- Pygame (Audio playback)
+- FluidSynth (MIDI to audio conversion)
 - Tkinter (GUI)
 - OpenPyXL (Excel file handling)
 - PrettyTable (formatted console output)
-- Additional dependencies as specified in requirements.txt
+
+## Installation
+
+### Quick Setup (Recommended)
+
+We provide convenient setup scripts that will install all required dependencies:
+
+#### For Linux/macOS:
+
+```bash
+# Make the setup script executable
+chmod +x setup.sh
+
+# Run the setup script
+./setup.sh
+```
+
+#### For Windows:
+
+```
+# Run the setup batch script
+setup.bat
+```
+
+### Manual Setup
+
+If you prefer to install dependencies manually:
+
+1. Install Python 3.6+ if not already installed
+2. Install required Python packages:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Install FluidSynth (required for MIDI to audio conversion):
+   - **Ubuntu/Debian**: `sudo apt-get install fluidsynth`
+   - **macOS**: `brew install fluidsynth`
+   - **Windows**: Download from [FluidSynth website](https://www.fluidsynth.org/)
 
 ## Usage
 
@@ -129,7 +167,18 @@ MIDIMusicGeneration/
    - Train the models
    - Test model performance
    - Generate new music
+   - Play the generated music directly from the interface
    - View comparative results
+
+### Audio Playback
+
+The application includes an integrated audio player that allows you to:
+
+- Select and play generated MIDI files
+- Control playback with play/stop buttons
+- Automatically converts MIDI to audio format for playback
+
+Note: Full audio functionality requires FluidSynth to be installed.
 
 ## Potential Applications
 
