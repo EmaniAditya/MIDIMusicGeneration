@@ -116,6 +116,8 @@ MIDIMusicGeneration/
 - Tkinter (GUI)
 - OpenPyXL (Excel file handling)
 - PrettyTable (formatted console output)
+- Pandas (data manipulation)
+- Music21 (music analysis)
 
 ## Installation
 
@@ -195,6 +197,77 @@ The application includes an integrated audio player that allows you to:
 - Automatically converts MIDI to audio format for playback
 
 Note: Full audio functionality requires FluidSynth to be installed.
+
+## Troubleshooting
+
+### Common Issues
+
+#### Missing Python Packages
+
+If you encounter errors like `ModuleNotFoundError: No module named 'pandas'` or `ModuleNotFoundError: No module named 'openpyxl'`:
+
+1. **Verify virtual environment activation**: Make sure you've activated the virtual environment before running the application
+   ```bash
+   # Linux/macOS
+   source venv/bin/activate
+   
+   # Windows
+   venv\Scripts\activate
+   ```
+
+2. **Install missing packages directly**:
+   ```bash
+   pip install pandas openpyxl
+   ```
+
+3. **On Debian/Ubuntu systems with externally-managed-environment error**:
+   ```bash
+   # Option 1: Use the --break-system-packages flag
+   pip install --break-system-packages -r requirements.txt
+   
+   # Option 2: Install to user directory
+   pip install --user -r requirements.txt
+   
+   # Option 3: Use the setup scripts which handle this properly
+   ./quick_setup.sh
+   ```
+
+#### Virtual Environment Issues
+
+If you have trouble creating a virtual environment:
+
+1. **Install venv package**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt-get install python3-venv
+   
+   # Or for specific Python version:
+   sudo apt-get install python3.10-venv  # Replace 3.10 with your version
+   ```
+
+2. **Use system packages directly** (if you can't create a virtual environment):
+   ```bash
+   pip install --user -r requirements.txt
+   ```
+
+#### FluidSynth Not Found
+
+If audio conversion doesn't work:
+
+1. **Install FluidSynth**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt-get install fluidsynth
+   
+   # macOS
+   brew install fluidsynth
+   ```
+
+2. **Verify soundfont installation**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt-get install fluid-soundfont-gm
+   ```
 
 ## Potential Applications
 

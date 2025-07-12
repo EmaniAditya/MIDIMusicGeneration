@@ -16,10 +16,28 @@ else
   exit 1
 fi
 
+# Get Python version
+PYTHON_VERSION=$($PYTHON_CMD --version | cut -d' ' -f2 | cut -d'.' -f1-2)
+
 # Install python3-venv if needed
 if ! $PYTHON_CMD -m venv --help > /dev/null 2>&1; then
   echo "Installing python3-venv package (may require password)..."
-  sudo apt-get update && sudo apt-get install -y python3-venv python3-full
+  sudo apt-get update
+  if sudo apt-get install -y python3-venv; then
+    echo "✅ python3-venv installed"
+  elif sudo apt-get install -y python$PYTHON_VERSION-venv; then
+    echo "✅ python$PYTHON_VERSION-venv installed"
+  else
+    echo "❌ Failed to install python3-venv. Please install manually with:"
+    echo "   sudo apt-get install python3-venv or python$PYTHON_VERSION-venv"
+    exit 1
+  fi
+fi
+
+# Check for pip
+if ! command -v pip3 &> /dev/null; then
+  echo "Installing pip (may require password)..."
+  sudo apt-get install -y python3-pip
 fi
 
 # Create and activate virtual environment
@@ -37,6 +55,7 @@ source venv/bin/activate
 # Install dependencies
 echo "Installing Python packages..."
 pip install --upgrade pip
+pip install wheel  # Ensure wheel is installed
 pip install -r requirements.txt
 
 # Check if FluidSynth is installed
