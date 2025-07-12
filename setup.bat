@@ -56,7 +56,7 @@ if /i "%create_venv%" EQU "y" (
 echo.
 echo Installing required Python packages...
 %PIP_CMD% install --upgrade pip
-%PIP_CMD% install tensorflow keras numpy opencv-python Pillow mido pygame midi2audio openpyxl prettytable
+%PIP_CMD% install tensorflow keras numpy opencv-python Pillow mido pygame midi2audio openpyxl prettytable music21
 
 echo.
 echo Checking for system dependencies...

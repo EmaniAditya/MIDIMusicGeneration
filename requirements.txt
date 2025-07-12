@@ -8,4 +8,5 @@ pygame>=2.1.0
 midi2audio>=0.1.1
 openpyxl>=3.0.0
 prettytable>=2.0.0
-matplotlib>=3.3.0 
+matplotlib>=3.3.0
+music21>=7.0.0 
